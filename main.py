@@ -35,6 +35,6 @@ async def predict(image: UploadFile = File(...)):
         # Get the confidence of the prediction
         confidence = results[0].probs.top1conf.tolist()
 
-        return {"predictions": labels[classified_class], "confidence": confidence}
+        return {"prediction": labels[classified_class], "confidence": confidence}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
